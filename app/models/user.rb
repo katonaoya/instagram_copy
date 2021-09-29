@@ -6,4 +6,10 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true
+
+  has_many :pictures, dependent: :destroy
+
+  def own?(object)
+    id == object.user_id
+  end
 end

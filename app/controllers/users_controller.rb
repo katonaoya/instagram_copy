@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, except: [:destroy]
+
   def new
     @user = User.new
   end
@@ -12,13 +14,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to welcome_path, notice: "#{user.name}を削除しました"
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+  
   private
 
   def user_params
     params.require(:user).permit(
+      :name,
       :email,
       :password,
       :password_confirmation,
     )
   end
+
 end
