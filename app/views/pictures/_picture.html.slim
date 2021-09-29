@@ -1,0 +1,21 @@
+.card.mb-5.picture
+  .card-header
+    .d-flex.align-items-center
+      = image_tag 'black.jpg', size: '40x40', class: 'rounded-circle mr-1'
+      = picture.user.name
+      - if current_user&.own?(picture)
+        .ml-auto
+          = link_to picture_path(picture), class: 'mr-3', method: :delete, data: { confirm: '本当に削除しますか？' } do
+            = icon 'far', 'trash-alt', class: 'fa-lg'
+          = link_to edit_picture_path(picture) do
+            = icon 'far', 'edit', class: 'fa-lg'
+  = link_to picture_path(picture) do
+    .swiper
+      .swiper-wrapper
+        - picture.images.each do |image|
+          .swiper-slide
+            = image_tag image, class: 'card-img-top'
+      .swiper-pagination
+  .card-body
+    .card-text
+      = picture.title

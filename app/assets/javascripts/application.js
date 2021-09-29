@@ -13,5 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-import 'bootstrap-material-design'
-import '../stylesheets/application'
+//= require swiper/swiper-bundle.js
+//= require swiper/swiper.js
+//= require bootstrap-material-design/dist/js/bootstrap-material-design.js
+
+

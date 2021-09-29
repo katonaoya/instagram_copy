@@ -133,7 +133,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.instagram.key = ""
   # config.instagram.secret = ""
   # config.instagram.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=instagram"
-  # config.instagram.user_info_mapping = {:email => "username"}
+  # config.instagram.user_info_mapping = {:email => "name"}
   # config.instagram.access_permissions = ["basic", "public_content", "follower_list", "comments", "relationships", "likes"]
   #
   # config.github.key = ""
@@ -161,7 +161,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.google.key = ""
   # config.google.secret = ""
   # config.google.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=google"
-  # config.google.user_info_mapping = {:email => "email", :username => "name"}
+  # config.google.user_info_mapping = {:email => "email", :name => "name"}
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
@@ -172,7 +172,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.microsoft.key = ""
   # config.microsoft.secret = ""
   # config.microsoft.callback_url = "http://0.0.0.0:3000/oauth/callback/microsoft"
-  # config.microsoft.user_info_mapping = {:email => "userPrincipalName", :username => "displayName"}
+  # config.microsoft.user_info_mapping = {:email => "userPrincipalName", :name => "displayName"}
   # config.microsoft.scope = "openid email https://graph.microsoft.com/User.Read"
   #
   # config.vk.key = ""
@@ -244,20 +244,20 @@ Rails.application.config.sorcery.configure do |config|
   # --- user config ---
   config.user_config do |user|
     # -- core --
-    # Specify username attributes, for example: [:username, :email].
+    # Specify name attributes, for example: [:name, :email].
     # Default: `[:email]`
     #
-    # user.username_attribute_names =
+    # user.name_attribute_names =
 
     # Change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
     #
     # user.password_attribute_name =
 
-    # Downcase the username before trying to authenticate, default is false
+    # Downcase the name before trying to authenticate, default is false
     # Default: `false`
     #
-    # user.downcase_username_before_authenticating =
+    # user.downcase_name_before_authenticating =
 
     # Change default email attribute.
     # Default: `:email`
