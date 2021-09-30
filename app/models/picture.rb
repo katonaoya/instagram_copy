@@ -5,4 +5,5 @@ class Picture < ApplicationRecord
 
   validates :images, presence: true
   validates :title, presence: true, length: { maximum: 1000 }
+  has_many :comments, dependent: :destroy
 end

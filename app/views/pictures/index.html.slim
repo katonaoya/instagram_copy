@@ -1,8 +1,9 @@
 .container
   .row
-    .col-md-8.col-12
+    .col-md-8.col-12p
       = render @pictures
       = paginate @pictures
+      = page_entries_info @pictures
     .col-md-4.col-12
       - if logged_in?
         .profile-box.mb-3
