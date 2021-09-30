@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   def index 
-    @pictures = Picture.all
+    @pictures = Picture.all.includes(:user).page(params[:page]).order(created_at: :desc)
   end
 
   def new
