@@ -9,6 +9,9 @@
             = icon 'far', 'trash-alt', class: 'fa-lg'
           = link_to edit_picture_path(picture) do
             = icon 'far', 'edit', class: 'fa-lg'
+      - if current_user && !current_user.own?(picture)
+        .ml-auto
+          = render 'like_area', picture: picture
   = link_to picture_path(picture) do
     .swiper
       .swiper-wrapper

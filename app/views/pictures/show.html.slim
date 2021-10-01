@@ -17,6 +17,9 @@
               = icon 'far', 'trash-alt', class: 'fa-lg'
             = link_to edit_picture_path(@picture) do
               = icon 'far', 'edit', class: 'fa-lg'
+        - if current_user && !current_user.own?(@picture)
+          .ml-auto
+            = render 'like_area', picture: @picture
     hr.m-0
     .picture-body.p-3
       / 投稿の本文

@@ -9,8 +9,22 @@ class User < ApplicationRecord
 
   has_many :pictures, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_pictures, through: :likes, source: :picture
 
   def own?(object)
     id == object.user_id
+  end
+
+  def like(picture)
+    like_pictures << picture
+  end
+
+  def unlike(picture)
+    like_pictures.destroy(picture)
+  end
+
+  def like?(picture)
+    like_pictures.include?(picture)
   end
 end
