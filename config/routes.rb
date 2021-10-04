@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get    '/welcome', to: "sessions#new",     as: :welcome
   post   '/login',   to: "sessions#create",  as: :login
   delete '/logout',  to: "sessions#destroy", as: :logout
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: %i[index new create show]
   resources :likes, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
 end

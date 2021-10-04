@@ -2,7 +2,13 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.save
-    redirect_to pictures_path(:id)
+    redirect_to picture_path(@picture)
+  end
+# _path(@comment.picture_id)
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy!
+    redirect_to :back
   end
 
   def edit
@@ -14,11 +20,7 @@ class CommentsController < ApplicationController
     @comment.update(comment_update_params)
   end
 
-  def destroy
-    @comment = current_user.comments.find(params[:id])
-    @comment.destroy!
-    redirect_to pictures_path(:id)
-  end
+  
 
   private
 

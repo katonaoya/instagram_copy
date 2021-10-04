@@ -1,6 +1,11 @@
 class PicturesController < ApplicationController
   def index 
-    @pictures = Picture.all.includes(:user).page(params[:page]).order(created_at: :desc)
+    @pictures = if current_user
+                  current_user.feed.includes(:user).page(params[:page]).order(created_at: :desc)
+                else
+                  Picture.all.includes(:user).page(params[:page]).order(created_at: :desc)
+                end
+    @users = User.recent(5)
   end
 
   def new
