@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'comments/edit'
   root to: 'home#index'
   resources :pictures, shallow: true do
+    collection do
+      get :search
+    end
     resources :comments
   end
   get    '/welcome', to: "sessions#new",     as: :welcome
