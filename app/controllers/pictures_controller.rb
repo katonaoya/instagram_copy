@@ -48,7 +48,7 @@ class PicturesController < ApplicationController
   end
 
   def search
-    @posts = @search_form.search.includes(:user).page(params[:page])
+    @pictures = @search_form.search.includes(:user).page(params[:page])
   end
   
   private
