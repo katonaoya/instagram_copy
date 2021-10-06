@@ -18,6 +18,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認）
         login: ログイン
+        avatar: アバター
       picture:
           title: タイトル
           images: 写真
