@@ -1,0 +1,8 @@
+= link_to read_activity_path(activity), class: "dropdown-item border-bottom #{'read' if activity.read?}", method: :patch do
+  = image_tag activity.subject.follower.avatar.url, class: 'rounded-circle mr-1', size: '30x30'
+  object
+    = link_to activity.subject.follower.¥name, user_path(activity.subject.follower)
+  | があなたをフォローしました
+  .text-right
+    = l activity.created_at, format: :short
+  / lメソッドはconfig/application.rbで設定した国の時間をja.ymlで設定した時間の表記に合わせて表示してくれるメソッド。

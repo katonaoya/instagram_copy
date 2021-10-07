@@ -31,6 +31,7 @@ class User < ApplicationRecord
 # map(&:followerd)はハッシュからfollowerdという値を取り出すということを繰り返すというメソッド
 # active_relationshipsのuser_idと@user.idが同じ(フォローしているユーザー)人のfollwerd（@userにフォローされている人）を全てとってくるメソッド（following）を作る
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :activities, dependent: :destroy
 
   scope :recent, ->(count) { order(created_at: :desc).limit(count) }
 
