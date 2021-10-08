@@ -58,4 +58,12 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.session_store :redis_store, servers: 'redis://localhost:6379', expire_after: 1.day
+
+# アプリケーションのホスト情報をメイラー内で使うために:hostを設定する。
+# development.ymlでdefault_url_optionsを設定しているので、それをシンボル化して利用する。
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
+# 開発環境でメールを擬似的に送る場所の設定。:letter_opener_webに設定するとデフォルトのブラウザでプレビューすることができる。
+  config.action_mailer.delivery_method = :letter_opener_web
 end
