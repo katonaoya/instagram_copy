@@ -1,8 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 # envは環境を確認するメソッド。↓はRailsが開発環境であるかを確認する。
   if Rails.env.development?
 # letter_opener_webが送信されたメールを見れるようにしてくれる。
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
+    mount Sidekiq::Web, at: '/sidekiq'
   end
   get 'comments/edit'
   root to: 'home#index'
