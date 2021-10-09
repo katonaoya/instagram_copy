@@ -47,6 +47,10 @@ class PicturesController < ApplicationController
     redirect_to root_path, notice: "#{@picture.title}を削除しました"
   end
 
+  def search
+    @pictures = @search_form.search.includes(:user).page(params[:page])
+  end
+  
   private
 
   def picture_params
