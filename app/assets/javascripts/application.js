@@ -14,7 +14,7 @@
 //= require activestorage
 //= require_tree .
 //= require swiper/swiper-bundle.js
-//= require swiper/swiper.js
+//= require swiper.js
 //= require bootstrap-material-design/dist/js/bootstrap-material-design.js
 //= require jquery3
 //= require popper

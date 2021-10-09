@@ -1,10 +1,11 @@
-h1 ユーザー詳細
-
-table.tabl.table-hover
-  tbody
-    tr
-      th= User.human_attribute_name(:name)
-      td= @user.name
-    tr
-      th= User.human_attribute_name(:email)
-      td= @user.email
+.container
+  .row
+    .col-md-6.offset-md-3
+      .card
+        .card-body
+          .text-center.mb-3
+            = image_tag 'black.jpg', size: '100x100', class: 'rounded-circle mr-1'
+          .profile.text-center.mb-3
+            = @user.name
+          .text-center
+            = render 'follow_area', user: @user
