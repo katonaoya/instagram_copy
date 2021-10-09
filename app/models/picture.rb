@@ -8,8 +8,9 @@ class Picture < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
+  has_one :activity, as: :subject, dependent: :destroy
 
-# モデル名.where('カラム名 like ?','検索したい文字列')
+# モデル名.where('カラム名 like ?','検索したい文字列') => ?には引数が左から順に入る。
   scope :body_contain, ->(word) { where('pictures.title LIKE ?', "%#{word}%") }
 # joinsは複数のテーブルを内部結合するためのメソッド
   scope :comment_body_contain, ->(word) { joins(:comments).where('comments.body LIKE ?', "%#{word}%") }

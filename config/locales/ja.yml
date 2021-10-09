@@ -26,6 +26,11 @@ ja:
         body: 'コメント'
         user_id: 'ユーザー'
         picture_id: '投稿'
+    time:
+      formats:
+        default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+        long: "%Y/%m/%d %H:%M"
+        short: "%m/%d %H:%M"
   date:
     abbr_day_names:
     - 日
