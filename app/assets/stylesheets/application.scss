@@ -35,7 +35,7 @@ img {
   width: 100%;
 }
 
-.post {
+.picture {
   max-width: 400px;
   margin: 0 auto;
   .card-img-top {
@@ -49,7 +49,7 @@ img {
   object-fit: cover;
 }
 
-.post-detail {
+.picture-detail {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -80,12 +80,12 @@ img {
       width: 100%;
     }
 
-    .post-body {
+    .picture-body {
       overflow: scroll;
       max-height: 250px;
     }
 
-    .post-comment {
+    .picture-comment {
       margin-top: auto;
       .input-comment-body {
         flex: 1;

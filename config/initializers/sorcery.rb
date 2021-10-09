@@ -193,7 +193,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.liveid.key = ""
   # config.liveid.secret = ""
   # config.liveid.callback_url = "http://mydomain.com:3000/oauth/callback?provider=liveid"
-  # config.liveid.user_info_mapping = {:username => "name"}
+  # config.liveid.user_info_mapping = {:name => "name"}
 
   # For information about JIRA API:
   # https://developer.atlassian.com/display/JIRADEV/JIRA+REST+API+Example+-+OAuth+authentication
