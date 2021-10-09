@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
-    @comment.save
-    redirect_to root_path
+    UserMailer.with(user_from: current_user, user_to: @comment.picture.user, comment: @comment).comment_picture.deliver_later if @comment.save
+
   end
 # picture_path(@comment.picture_id)
   def destroy
