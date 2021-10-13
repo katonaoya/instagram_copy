@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
-    UserMailer.with(user_from: current_user, user_to: @comment.picture.user, comment: @comment).comment_picture.deliver_later if @comment.save
+    UserMailer.with(user_from: current_user, user_to: @comment.picture.user, comment: @comment).comment_picture.deliver_later if @comment.save && @comment.picture.user.notification_on_comment?
+
 
   end
 # picture_path(@comment.picture_id)
